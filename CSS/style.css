@@ -1,0 +1,746 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+html{
+    scroll-behavior: smooth; /*para que cuando hagamos click en los sitios no nos lleve bruscamente al destino*/
+}
+/* Definición de la fuente que quiero para los títulos y el logo (Cinzel) */
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../fonts/CinzelDecorative-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Definición de la fuente que quiero en el documento para los párrafos (Roboto) */
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/RobotoSerif-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+}
+h1, h2, h3, h4, h5, h6, p, .nombre{
+    font-family: 'Cinzel', serif; /* Aplicar fuente Cinzel a los títulos y al logo */
+}
+h1{
+    font-size: 3em;
+}
+h2{
+    font-size: 2.2em;
+}
+h3{font-size: 1.5em;
+
+}
+p{font-size: 1,2em;
+}
+
+/* Espacio interlineal para títulos */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.4; /* Ajusta este valor según tus necesidades */
+}
+
+/* Espacio interlineal para párrafos */
+p {
+    line-height: 2; /* Ajusta este valor según tus necesidades */
+}
+
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+/*Cabecera*/
+
+header{
+    background-color: rgb(143, 186, 143);
+    position: fixed; 
+    top:0;
+    width: 100%;
+    margin: auto;
+    z-index: 999; /*El z index es para que se sobreponga a cualquier elemento*/
+    justify-content: center;
+}
+header .nombre{
+    margin:0;
+    padding: 30px 30px;
+    font-style: "CinzelDecorative", serif;
+    font-weight: bold;  
+    font-size: 2em;
+    color: rgb(240, 247, 240);   
+    text-shadow: 3px 3px 15px brown; 
+    }
+header .container{
+    display: flex; /*poner los elementos en una sola linea*/
+    flex-direction: row;
+    align-items: center;    
+    justify-content: space-between;
+}
+header .logo{
+    border-radius: 20px;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+/* para ver el menú desplegable*/
+.menu-nav{
+    display: none;
+    
+}
+.menu-nav_visible{
+    display: flex;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    font-size: 1.4em;
+    padding: 0 0;
+    background-color: rgba(212, 111, 111, 0.95);
+    position: fixed;
+    left:50%;
+    top: 98px;
+    width: 100%;
+    line-height: 60px;
+    height: calc(50% - 98px);
+    overflow-y: auto;
+    transform: translateX(-50%);
+      }
+      
+.menu-nav-item:hover{
+    color:rgb(143, 186, 143) ;
+    transition: 0.5s;
+}
+/*configurar menu hamburguesa*/
+.nav-boton{
+    display: block;
+    background: none;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+}
+.nav-boton:hover{
+    transition: linear 0.3s;
+    background-color: rgba(212, 111, 111, 0.5);
+    cursor: pointer;
+
+}
+
+/*configurar slider*/
+#inicio{
+    width: 100%;
+    overflow: hidden;
+    
+}
+.container-nw{
+    display: flex;
+    width: 300%;
+    animation: slide 20s infinite;
+    
+    }
+#slider1,
+#slider2,
+#slider3{
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Altura completa de la ventana */
+    text-align: center;
+    flex-direction: column; /* Alinea los elementos internos del slider en columna */
+    color: white;
+    align-items: center; /*centra horizontalmente el contenido (texto) */ 
+}
+
+#slider1{
+    background-image: linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("../imagenes/druida.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    justify-content: flex-end; /* Posiciona el texto en la parte inferior */
+    align-items: center; /* Centra horizontalmente */
+
+}
+#slider2{
+    background-image:linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../imagenes/hadas\ y\ duendes.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    justify-content: center;/* Centra en el centro el texto */
+    align-items: center; /* Centra horizontalmente */
+}
+#slider3{
+    background-image:linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../imagenes/_6b76523a-9b35-47d2-b86d-b9c5a7575e64.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    justify-content: flex-end; /* Posiciona el texto en la parte inferior */
+    align-items: center; /* Centra horizontalmente */
+}
+
+/*animando slider*/
+@keyframes slide {
+0%, 25% {margin-left: 0}
+
+25%, 50% {margin-left: -100%}
+
+50%,75% {margin-left: -200%}
+
+75%,100% {margin-left: 0%}
+
+}
+/* configurando actividades y reserva*/
+#Actividades{
+    background-color:rgb(212, 111, 111);
+    color:rgb(240, 247, 240); 
+    text-align: center;
+    padding: 20px 0;
+}
+#reserva{
+    background-color:rgb(143, 186, 143);
+    color:rgb(240, 247, 240); 
+    text-align: center;
+    padding: 20px 0;
+}
+#Actividades .container,
+#reserva .container{
+    padding: 20px 80px;
+}
+
+#Actividades h2,
+#reserva h2{
+    margin-top: 0;
+    padding-top: 10px;
+    color: rgb(240, 247, 240);
+    text-shadow: 3px 8px 5px rgb(71, 2, 2);
+}
+#Actividades h3{
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color:rgb(240, 247, 240);
+    text-shadow: 3px 3px 5px rgb(143, 186, 143);
+}
+
+#Actividades .ele-actividades{
+    background-position: center center;
+    background-size: cover;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 5px;
+}
+#Actividades p{
+    display: none;
+}
+
+/*botones*/
+button{
+    font-size: 1.2em; 
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgb(240, 247, 240);
+}
+button:hover{
+    background-color: rgb(143, 186, 143);
+    cursor: pointer;
+}
+button, input[type="submit"], input[type="button"], .btn {
+    font-family: 'Cinzel', serif;
+}
+
+/*imágenes en DIV de actividades*/
+#rutastematicas{
+    background-image:linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../imagenes/ruta-teatralizada.jpg.jpg");
+}
+#gymkanas{
+    background-image:linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../imagenes/gymkana.jpg");
+}
+#escaperooms{
+    background-image:linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../imagenes/_4650f213-df64-4d71-93ca-e53e3e675257.jpg");
+}
+
+/*Creando la sección Comunidad*/
+#comunidad {
+    background-color: rgb(143, 186, 143);
+    color:rgb(240, 247, 240); 
+    text-align: center;
+    padding: 20px 0;
+     
+}
+#comunidad .container{
+    background-image:  linear-gradient(0deg,rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../imagenes/_7287f044-0502-48c1-8fd8-5305ea6b8736.jpg");
+    border-radius: 20%;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+    padding: 50px;
+    margin: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+#comunidad h2{
+    margin-top: 0;
+    padding-top: 10px;
+    color: rgb(240, 247, 240);
+    text-shadow: 3px 8px 5px rgb(191, 148, 148);
+}
+
+/* Estilos para el campo de entrada */
+#entradadetexto {
+    width: 100%;
+    max-width: 500px; /* Ajusta el ancho máximo del campo */
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.1em;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+#entradadetexto::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Color del texto del placeholder */
+    font-style: italic;
+}
+
+/*Estilo general del footer*/
+footer{
+    background-color:rgb(212, 111, 111);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+/*Estilo general del contenedor del footer*/
+footer .container{
+    display: flex;
+    align-items: flex-start;/* Alinea los elementos al principio del contenedor */
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+/*Configurando la sección Contacto*/
+.contacto{
+    display: flex; /*flexbox para colocar el formulario y el mapa en columnas */
+    gap: 20px; /* Espacio entre el formulario y el mapa */
+    padding: 0 10px;
+}
+
+/*configurando el formulario*/
+.contacto-form {
+    flex: 1;
+    max-width: 500px;
+}
+form {
+  width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="email"], input[type="tel"] {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(143, 186, 143);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Estilo del mapa */
+.contacto-map {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box; /
+     
+}
+
+.contacto-map h3 {
+    max-width: 100%; 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 10px; 
+    
+}
+
+#map {
+    height: 500px; /* Ajusta la altura del mapa */
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Estilo del copyright y logo de Instagram */
+#copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#copy span {
+    margin-right: 10px; /* Espacio entre el texto de copyright y el logo */
+}
+
+#copy a img {
+    vertical-align: middle; /* Alineación verticalmente el logo con el texto */
+    margin-left: 10px; /* Espacio a la izquierda del logo */
+}
+/* Botón de enviar */
+#enviar {
+    background-color: rgb(99, 45, 45);
+    color: white;
+}
+
+/* Ajuste del área de texto */
+#entradadetexto {
+    min-width: 250px;
+    min-height: 30px;
+}
+/*quiero poner sombras en los divs de la clase ele-actividades cuando pasamos el ratón por encima */
+#Actividades .ele-actividades:hover{
+    box-shadow: 0 0 10px 5px rgb(99, 45, 45);
+
+    /*quiero hacer ahora un zoom cuando pasamos el ratón por encima*/
+    transform: scale(1.1);
+    transition: 0.5;
+}    
+/*con esto quiero crear una nueva  clase para luego usar en js*/
+.ele_tr{
+    transform: scale(1.05);
+    transition: 0.10s;
+}
+/*Configurando la sección Servicios*/
+
+.servicios {
+    padding: 50px;
+  }
+  /* Estilo general para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo para cada celda de la tabla */
+td {
+    padding: 10px; /* Espaciado interno de cada celda */
+    vertical-align: top; /* Alinea el contenido al inicio verticalmente */
+}
+
+  .tarjeta {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 350px; ;
+  }
+  
+  .tarjeta img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    max-height: 200px;
+  }
+  
+  .tarjeta h3 {
+    font-weight: bold;
+    margin-top: 10px 0;
+    font-size: 1.2em;
+  }
+  
+  .tarjeta p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .tarjeta button {
+    background-color: rgb(143, 186, 143);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .tarjeta button:hover {
+    background-color: #066909;
+  }
+  
+  
+  
+  .tarjeta img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .tarjeta h3 {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .tarjeta p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .tarjeta button {
+    background-color: rgb(143, 186, 143);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .tarjeta button:hover {
+    background-color: #066909;
+  }
+  #servicios h2{
+    text-align: center;
+      margin-top: 0;
+      padding-top: 10px;
+      color: rgb(212, 111, 111);
+      text-shadow: 3px 8px 5px rgb(71, 2, 2);
+      width: 100%; /* agregar un ancho del 100% */
+      display: block; /* asegurarse de que el h2 sea un bloque */
+    
+  }
+  .titulo {
+    text-align: center;
+  }
+
+
+/*Configurando el calendario de reservas*/
+
+/* Contenedor del calendario */
+#reservas {
+    text-align: center; /* Centra todo el contenido de la sección */
+    padding: 20px;
+}
+
+.calendar-wrapper {
+    display: inline-block;
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    margin: 0 auto; /* Alinea el contenedor en el centro de su contenedor padre */
+    max-width: 300px; /* Define un ancho máximo para el contenedor */
+}
+
+/* Estilo del input del calendario */
+#datepicker {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor */
+    padding: 10px; /* Añade padding para hacer el input más espacioso */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    font-size: 16px; /* Tamaño de fuente adecuado para el input */
+}
+
+/* Estilo del mensaje de disponibilidad */
+#disponibilidad {
+    font-size: 16px; /* Tamaño de fuente para el mensaje */
+    margin-top: 10px; /* Espacio arriba del mensaje */
+}
+
+/* Estilo del botón de reserva */
+#reservar {
+    display: block; /* Asegura que el botón sea visible cuando se deba mostrar */
+    margin: 20px auto; /* Centra el botón y añade espacio alrededor */
+    padding: 10px 20px; /* Añade padding para el botón */
+    font-size: 16px; /* Tamaño de fuente adecuado para el botón */
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    border-radius: 5px; /* Redondea las esquinas del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+#reservar:hover {
+    background-color: #45a049; /* Color de fondo al pasar el mouse sobre el botón */
+}
+
+
+/* Estilo de la etiqueta */
+#reservas label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Estilo del mensaje de disponibilidad y del botón */
+#disponibilidad, #reservar {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Estilo del formulario de reservas */
+#formulario-reservas {
+    margin-top: 20px;
+    text-align: left; /* Cambia a left para que el formulario no esté centrado */
+    max-width: 600px;
+    margin: 0 auto; /* Centra el formulario en su contenedor */
+}
+
+/* Estilo de los campos del formulario */
+#formulario-reservas label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+#formulario-reservas input[type="text"],
+#formulario-reservas input[type="email"],
+#formulario-reservas input[type="number"],
+#formulario-reservas textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#formulario-reservas input[type="submit"] {
+    background-color: rgb(143, 186, 143);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#formulario-reservas input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+#mensaje-confirmacion {
+    margin-top: 20px;
+    font-weight: bold;
+    color: green;
+}
+
+
+
+
+
+/* Configurando la versión para móviles*/
+@media (max-width: 760px){
+    .nav-boton{
+        display: block;
+    }
+    .menu-nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(143, 186, 143);
+        transition: 1s;
+        transform: translateX(100%);
+    }
+    .menu-nav_visible{
+        transform: translateX(0);
+    }
+    .menu-nav-item{
+        line-height: 50px;
+    }
+}   
+
+/* Configurando la versión Para escritorio*/
+@media (min-width: 760px){
+    .nav-boton{
+        display: none;
+    }
+    .menu-nav{
+        display: flex;
+        flex-direction: row;
+        margin-right: 40px;
+        font-size: 1em;
+        align-items: center;
+        list-style: none;
+        background-color:rgb(143, 186, 143);
+        line-height: 50px;
+    }
+.menu-nav-item{
+    text-transform: uppercase;
+    padding: 8px 12px;
+}
+.menu-nav-item:hover{
+    background-color: rgb(99, 45, 45);
+    border-radius: 7px;
+    transition: 0.5s;
+}
+}
+/*Configurando Actividades */
+#Actividades.ele-actividades{
+    padding: 60px;
+    margin: 40px;
+    }
+#Actividades p{
+    display: block;
+    margin: auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+button{
+    margin-top: 15px;
+}
+
+#Actividades h3{
+    font-size: 2em;
+    text-shadow: 3px 3px 5px black;
+    padding-bottom: 20px;
+}
+
+/* Configurando COmunidad*/
+#comunidad .s-container{
+    flex-direction: row;
+    margin: 20px;
+}
+#comunidad img{
+    width: 550px
+}

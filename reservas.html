@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">;
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Alquimia en Espiral</title>
+   </head>
+<body>
+    <header>
+<nav  class="container">
+    <p class="nombre">Alquimia en Espiral</p>
+    <img class= logo src="/Alquimia en Espiral.jpg" alt="Logo de Alquimia" width="80px">
+   <ul class="menu-nav">
+<li><a href="index.html" class="menu-nav-item">Inicio</a></li>
+<li><a href="#servicios" class="menu-nav-item">Actividades</a></li>
+<li><a href="#servicios" class="menu-nav-item">Reservas</a></li>
+<li><a href="#contacto" class="menu-nav-item">Contacto</a></li>
+
+   </ul>
+   <button class="nav-boton">
+    <img src="/bar-menu.png" alt="Hamburguesa menú" width="50px" class="btn1">
+   </button>
+</nav>
+
+    </header>
+    
+    <section id="inicio">
+        <div class="container-nw">
+            <div class="slider" id="slider1">
+                <h1>Explora la magia celta de los bosques</h1>
+        </div>
+            <div class="slider" id="slider2">
+                <h1> Prepárate para conocer a las Hadas y los Duendes ocultos</h1>
+            </div>
+            <div class="slider" id="slider3">
+                <h1>Descubre la belleza de la Naturaleza en estado puro</h1>
+            </div>
+        </div>
+    </section>
+   <section id = "servicios" class="servicios">
+     <div class="container">
+        <div class="titulo">
+            <h2> Tú eliges la localización en la sierra... ¡nosotras la experiencia! ¿Con cual te quedas?</h2>
+        </div>
+        <table>
+         <tr>
+           <td>
+             <div class="tarjeta">
+               <img src="imagenes/ruta-teatralizada.jpg.jpg" alt="Ruta teatralizada">
+               <h3>Ruta teatralizada</h3>
+               <p>25€ por persona</p>
+               <button onclick="scrollToReservas()">Comprueba disponibilidad</button>
+             </div>
+           </td>
+           <td>
+             <div class="tarjeta">
+               <img src="imagenes/ruta-explorador.jpg.jpg" alt="Ruta Explorador/a">
+               <h3>Ruta Explorador/a</h3>
+               <p>15€/persona</p>
+               <button onclick="scrollToReservas()">Comprueba disponibilidad</button>
+             </div>
+           </td>
+           <td>
+             <div class="tarjeta">
+               <img src="imagenes/ruta-expedicion-botanica.jpg.jpg" alt="Ruta Expedición Botánica">
+               <h3>Ruta Expedición Botánica</h3>
+               <p>15€/persona</p>
+               <button onclick="scrollToReservas()">Comprueba disponibilidad</button>
+             </div>
+           </td>
+         </tr>
+         <tr>
+           <td>
+             <div class="tarjeta">
+               <img src="imagenes/gymkana.jpg" alt="Gymkana en la naturaleza">
+               <h3>Gymkana en la naturaleza</h3>
+               <p>10€/persona</p>
+               <button onclick="scrollToReservas()">Comprueba disponibilid</button>
+             </div>
+           </td>
+           <td>
+             <div class="tarjeta">
+               <img src="imagenes/_7287f044-0502-48c1-8fd8-5305ea6b8736.jpg" alt="Escaperoom en la naturaleza en familia">
+               <h3>Escaperoom en la naturaleza en familia</h3>
+               <p>20€/persona</p>
+               <button onclick="scrollToReservas()">Comprueba disponibilidad</button>
+             </div>
+           </td>
+           <td>
+             <div class="tarjeta">
+               <img src="imagenes/_4650f213-df64-4d71-93ca-e53e3e675257.jpg" alt="Escaperoom en la naturaleza- adultos">
+               <h3>Escaperoom en la naturaleza- adultos</h3>
+               <p></p>
+               <button onclick="scrollToReservas()">Comprueba disponibilidad</button>
+             </div>
+           </td>
+         </tr>
+        
+         
+       </table>
+     </div>
+   </section>
+ 
+   
+   <section id="reservas">
+    <div class="container">
+        <h3>Comprueba disponibilidad</h3>
+       
+        <div class="calendar-wrapper">
+             <label for="fecha">Elige a una fecha:</label>
+             <input type="text" id="fecha" placeholder="Elige una fecha">
+            <p id="disponibilidad"></p> <!-- Aquí se mostrará el mensaje de disponibilidad -->
+            <br>
+            <button id="reservar" style="display:none;">¡Quiero reservar!</button> <!-- Botón para reservar (invisible por defecto) -->
+        </div>
+
+ <!-- Formulario de reservas -->
+ <div id="formulario-reservas" style="display: none;">
+    <form id="reserva-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="participantes">Número de participantes:</label>
+        <input type="number" id="participantes" name="participantes" min="1" required>
+        
+        <label for="edades">Edades de los participantes:</label>
+        <input type="text" id="edades" name="edades" placeholder="Ej. 12, 14, 16" required>
+        
+        <label for="comentarios">Coméntanos todo lo que necesitamos saber de tu grupo:</label>
+        <textarea id="comentarios" name="comentarios" rows="4" placeholder="¿Estáis celebrando algo? ¿Hay alguien con necesidades especiales? ¿Alguna petición especial?" required></textarea>
+        
+        <input type="submit" value="Enviar">
+    </form>
+    <p id="mensaje-confirmacion" style="display: none;">¡Muchas gracias por tu reserva! Cada vez estás más cerca de comenzar tu aventura. Nos pondremos en contacto contigo lo antes posible para confirmar el servicio.</p>
+</div>
+</div>
+</section>
+
+        </div>
+</section>
+
+   <!--
+      
+    <section id="Actividades">
+        <div class="container">
+            <h2> Actividades para todas las edades en la sierras Norte/Oeste de Madrid:</h2>
+            <div class="ele-actividades" id="rutastematicas">
+                <h3> Rutas temáticas por la Sierra (en familia:todas las edades)</h3>
+                <p>¡Nuestras rutas temáticas son únicas!  Esta es nuestra oferta:</p>
+                <ul>
+                    <li>Ruta teatralizada con la naturaleza como único escenario te harán harán descubrir personajes llenos de magia 
+                    y misterio que te guiarán a través
+                     de los secretos del bosque...</li>
+                    <li>Ruta exploradando los bosques en búsqueda de criaturas ocultas, 
+                     siguiendo huellas misteriosas y rastros encantados que solo los más atentos podrán descubrir </li>
+                     <li>Ruta de expedición botánica que te llevará a encontrar las plantas curativas de los sabios 
+                     druidas para conocer sus secretos ancestrales.</li>
+                </ul>
+                <p>¡Déjate llevar por la magia de la naturaleza en cada aventura que ofrecemos!</p>     
+                <button>¡Quiero reservar!</button>
+            </div>
+            <div class="ele-actividades" id="gymkanas">
+                <h3> Gymkanas en la Naturaleza (en familia:todas las edades)</h3>
+                <p>Embárcate en nuestras emocionantes gymkanas en la naturaleza, donde con cada paso estarás más cerca de desvelar los 
+                    misterios ocultos del bosque. Descubre pistas ocultas entre los árboles, resuelve enigmas inspirados en antiguas
+                     leyendas y desata tu espíritu aventurero mientras compites en desafíos cargados de adrenalina. A medida que te adentres 
+                     en senderos desconocidos, sentirás la presencia de fuerzas mágicas que guían tu camino. Solo aquellos con ingenio, valentía 
+                     y un corazón abierto a lo inexplicable podrán triunfar en esta aventura.  </p>
+                     <br>
+                     <p><strong>¿Te atreves a intentarlo? </strong></p>
+                <button>¡Quiero reservar!</button>
+            </div>
+            <div class="ele-actividades" id="escaperooms">
+                <h3> Escaperooms al Aire Libre (en familia y solo adultos)</h3>
+                <p>Adéntrate en el bosque y deja que la magia de la naturaleza te envuelva.
+                     Sumérgete en un antiguo misterio celta, donde cada paso te acerca a resolver enigmas ancestrales, 
+                     desentrañar secretos olvidados y desactivar trampas milenarias. 
+                     Rodeado por la majestuosidad del bosque, trabajarás en equipo para descubrir artefactos sagrados y descifrar 
+                     códigos ocultos en la naturaleza.  </p>
+                     <br>
+                <p>¿Tendrás la astucia y el valor para escapar antes de que la magia del 
+                        bosque te envuelva por completo?</p>
+                    
+                <button>¡Quiero reservar!</button>
+            </div>
+        </div>
+    </section>
+
+    -->
+    <section id="comunidad">
+        <div class="container">
+            <div class="s-container">
+                
+                <br>
+                <h2>Comunidad de Alquimia en Espiral</h2>
+                <br>
+                <br>
+                <p>¡Déjate llevar por la magia ancestral para estar al día de todas nuestras novedades, ofertas y eventos! 
+                    ¡Adéntrate en un mundo de leyendas y seres encantados que no dejará de sorprenderte!</p>
+                <br>
+                <br>
+                <br>
+                <input type="text" id="entradadetexto" placeholder="Únete con tu email">
+            </div>
+        </div>
+    </section>
+<footer id="contacto">
+    <div class="container">
+        <div class="contacto">
+            <div class="contacto-form">
+            <p>¿Tienes alguna duda? ¡Contáctanos!</p>
+            <p>¡Nos encantará saber de tí!</p>
+            <br>
+            <!--Formulario de contacto--> 
+                <form action="enviar.php" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre">
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <br>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                    <br>
+                    <label for="comentario">Escribe aquí tus dudas/preguntas/comentarios:</label>
+                    <textarea id="comentario" name="comentario"></textarea>
+                    <br>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+            <!-- Sección del mapa -->
+            <div class="contacto-map">
+                <h3>¿Por dónde trabajamos?</h3>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Sección del copyright y logo de Instagram -->
+    <div id="copy">
+        <span>&copy; Alquimia en Espiral</span>
+        <a href="https://www.instagram.com/alquimiaenespiral" target="_blank">
+            <img src="/log-ins.png" alt="Alquimia en Instagram" width="30px" style="vertical-align: middle; margin-left: 10px;">
+        </a>
+    </div>
+</footer>
+
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvgZoaETy9sP-2pw1eq4zKkskWwWh8pck&callback=initMap">
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/JS/script.js"></script>
+
+
+</body>
+</html>   
